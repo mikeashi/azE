@@ -168,10 +168,4 @@ public class Workhours {
 			this.Workhours = workhours;
 		}
 	}
-	@Override
-	public String toString() {
-		return "Workhours [id=" + id + ", user=" + user + ", day=" + day + ", ArraivedAt=" + ArraivedAt + ", leftAt="
-				+ leftAt + ", pause=" + pause + ", Workhours=" + Workhours + "]";
-	}
-	
 }
