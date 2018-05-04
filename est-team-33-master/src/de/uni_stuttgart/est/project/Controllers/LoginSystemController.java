@@ -6,10 +6,21 @@ import de.uni_stuttgart.est.project.Services.db;
 import de.uni_stuttgart.est.project.Services.md5;
 import de.uni_stuttgart.est.project.models.User;
 
+/**
+ * 
+ * @author MikeAshi
+ *
+ */
 public class LoginSystemController {
 	public static User currentUser = null;
 	public static Session session = db.getSession();
 
+	/**
+	 * 
+	 * @param username
+	 * @param password
+	 * @return
+	 */
 	public static String login(String username, String password) {
 		session.beginTransaction();
 		try {

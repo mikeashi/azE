@@ -11,11 +11,16 @@ import javax.persistence.Table;
 
 import de.uni_stuttgart.est.project.Controllers.LoginSystemController;
 
+/**
+ * 
+ * @author MikeAshi
+ *
+ */
 @Entity
 @Table(name = "workhours")
 public class Workhours {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	@OneToOne
 	private User user;
@@ -25,9 +30,19 @@ public class Workhours {
 	private String leftAt;
 	private String pause;
 	private String Workhours;
-	
+
 	public Workhours() {
 	}
+
+	/**
+	 * 
+	 * @param user
+	 * @param day
+	 * @param arraivedAt
+	 * @param leftAt
+	 * @param pause
+	 * @param workhours
+	 */
 	public Workhours(User user, Calendar day, String arraivedAt, String leftAt, String pause, String workhours) {
 		this.user = user;
 		this.day = day;
@@ -36,135 +51,139 @@ public class Workhours {
 		this.pause = pause;
 		Workhours = workhours;
 	}
+
 	public String getArraivedAt() {
-		if (!LoginSystemController.currentUser.isAdmin())
-		{
-			if (this.getUser().getUserName() != LoginSystemController.currentUser.getUserName())
-			{
+		if (!LoginSystemController.currentUser.isAdmin()) {
+			if (this.getUser().getUserName() != LoginSystemController.currentUser.getUserName()) {
 				throw new AccessControlException("You don't have the privileges to see ArraivedAt for another user");
-			}else {
+			} else {
 				return ArraivedAt;
 			}
-		}
-		else 
-		{
+		} else {
 			return ArraivedAt;
 		}
 	}
+
 	public Calendar getDay() {
 		return day;
 	}
+
 	public String getLeftAt() {
-		if (!LoginSystemController.currentUser.isAdmin())
-		{
-			if (this.getUser().getUserName() != LoginSystemController.currentUser.getUserName())
-			{
+		if (!LoginSystemController.currentUser.isAdmin()) {
+			if (this.getUser().getUserName() != LoginSystemController.currentUser.getUserName()) {
 				throw new AccessControlException("You don't have the privileges to see LeftAt for another user");
-			}else {
+			} else {
 				return leftAt;
 			}
-		}
-		else 
-		{
+		} else {
 			return leftAt;
 		}
 	}
+
 	public String getPause() {
-		if (!LoginSystemController.currentUser.isAdmin())
-		{
-			if (this.getUser().getUserName() != LoginSystemController.currentUser.getUserName())
-			{
+		if (!LoginSystemController.currentUser.isAdmin()) {
+			if (this.getUser().getUserName() != LoginSystemController.currentUser.getUserName()) {
 				throw new AccessControlException("You don't have the privileges to see Pause for another user");
-			}else {
+			} else {
 				return pause;
 			}
-		}
-		else 
-		{
+		} else {
 			return pause;
 		}
 	}
+
 	public User getUser() {
 		return user;
 	}
+
 	public String getWorkhours() {
-		if (!LoginSystemController.currentUser.isAdmin())
-		{
-			if (this.getUser().getUserName() != LoginSystemController.currentUser.getUserName())
-			{
+		if (!LoginSystemController.currentUser.isAdmin()) {
+			if (this.getUser().getUserName() != LoginSystemController.currentUser.getUserName()) {
 				throw new AccessControlException("You don't have the privileges to see Workhours for another user");
-			}else {
+			} else {
 				return Workhours;
 			}
-		}
-		else 
-		{
+		} else {
 			return Workhours;
 		}
 	}
+
+	/**
+	 * 
+	 * @param arraivedAt
+	 */
 	public void setArraivedAt(String arraivedAt) {
-		if (!LoginSystemController.currentUser.isAdmin())
-		{
-			if (this.getUser().getUserName() != LoginSystemController.currentUser.getUserName())
-			{
+		if (!LoginSystemController.currentUser.isAdmin()) {
+			if (this.getUser().getUserName() != LoginSystemController.currentUser.getUserName()) {
 				throw new AccessControlException("You don't have the privileges to add arraivedAt for another user");
-			}else {
+			} else {
 				this.ArraivedAt = arraivedAt;
 			}
-		}
-		else 
-		{
+		} else {
 			this.ArraivedAt = arraivedAt;
 		}
 	}
+
+	/**
+	 * 
+	 * @param day
+	 */
 	public void setDay(Calendar day) {
 		this.day = day;
 	}
+
+	/**
+	 * 
+	 * @param leftAt
+	 */
 	public void setLeftAt(String leftAt) {
-		if (!LoginSystemController.currentUser.isAdmin())
-		{
-			if (this.getUser().getUserName() != LoginSystemController.currentUser.getUserName())
-			{
+		if (!LoginSystemController.currentUser.isAdmin()) {
+			if (this.getUser().getUserName() != LoginSystemController.currentUser.getUserName()) {
 				throw new AccessControlException("You don't have the privileges to add leftAt for another user");
-			}else {
+			} else {
 				this.leftAt = leftAt;
 			}
-		}
-		else 
-		{
+		} else {
 			this.leftAt = leftAt;
 		}
 	}
+
+	/**
+	 * 
+	 * @param pause
+	 */
 	public void setPause(String pause) {
-		if (!LoginSystemController.currentUser.isAdmin())
-		{
-			if (this.getUser().getUserName() != LoginSystemController.currentUser.getUserName())
-			{
+		if (!LoginSystemController.currentUser.isAdmin()) {
+			if (this.getUser().getUserName() != LoginSystemController.currentUser.getUserName()) {
 				throw new AccessControlException("You don't have the privileges to add Pause for another user");
-			}else {
+			} else {
 				this.pause = pause;
 			}
-		}
-		else 
-		{
+		} else {
 			this.pause = pause;
 		}
 	}
+
+	/**
+	 * 
+	 * @param user
+	 */
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	/**
+	 * 
+	 * @param workhours
+	 */
 	public void setWorkhours(String workhours) {
-		if (!LoginSystemController.currentUser.isAdmin())
-		{
-			if (this.getUser().getUserName() != LoginSystemController.currentUser.getUserName())
-			{
+		if (!LoginSystemController.currentUser.isAdmin()) {
+			if (this.getUser().getUserName() != LoginSystemController.currentUser.getUserName()) {
 				throw new AccessControlException("You don't have the privileges to add Workhours for another user");
-			}else {
+			} else {
 				this.Workhours = workhours;
 			}
-		}
-		else 
-		{
+		} else {
 			this.Workhours = workhours;
 		}
 	}

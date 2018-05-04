@@ -13,9 +13,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class UserCPController implements Initializable{
+/**
+ * 
+ * @author MikeAshi
+ *
+ */
+public class UserCPController implements Initializable {
 	User user = LoginSystemController.currentUser;
-	
+
 	@FXML
 	public Label username;
 
@@ -27,14 +32,12 @@ public class UserCPController implements Initializable{
 
 	@FXML
 	public TextField gehzeit;
-	
-	
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		username.setText(user.getFirstName());
 		LocalDate today = new DateTime().toLocalDate();
-		date.setText(today.toString("Y") + "-" + today.toString("M") + "-" + today.toString("d"));				
+		date.setText(today.toString("Y") + "-" + today.toString("M") + "-" + today.toString("d"));
 	}
 
-	
 }

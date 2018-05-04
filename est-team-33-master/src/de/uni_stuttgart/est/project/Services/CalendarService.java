@@ -13,17 +13,17 @@ import de.uni_stuttgart.est.project.models.Repositorys.CalendarRepository;
  *
  */
 public class CalendarService {
-	public static void loadCalendar() {
-		LocalDate today = new DateTime().toLocalDate();
-		// check if the Calendar is Empty
-		if(calendarIsEmpty()) {
-			// create the first day record
-			CalendarRepository.add(today);
-		}
-	}
-
 	public static boolean calendarIsEmpty() {
 		List<Calendar> calendar = CalendarRepository.getAll();
 		return calendar.size() == 0;
+	}
+
+	public static void loadCalendar() {
+		LocalDate today = new DateTime().toLocalDate();
+		// check if the Calendar is Empty
+		if (calendarIsEmpty()) {
+			// create the first day record
+			CalendarRepository.add(today);
+		}
 	}
 }

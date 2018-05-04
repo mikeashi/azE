@@ -5,10 +5,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * @author MikeAshi
+ *
+ */
 @Entity
 @Table(name = "users")
-public class User{
-	
+public class User {
+
 	private int AccessLevel;
 	@Column(unique = true)
 	@Id
@@ -21,6 +25,14 @@ public class User{
 
 	}
 
+	/**
+	 * 
+	 * @param accessLevel
+	 * @param userName
+	 * @param firstName
+	 * @param lastName
+	 * @param password
+	 */
 	public User(int accessLevel, String userName, String firstName, String lastName, String password) {
 		AccessLevel = accessLevel;
 		UserName = userName;
@@ -53,21 +65,37 @@ public class User{
 		AccessLevel = accessLevel;
 	}
 
+	/**
+	 * @param firstName
+	 */
 	public void setFirstName(String firstName) {
 		FirstName = firstName;
 	}
 
+	/**
+	 * 
+	 * @param lastName
+	 */
 	public void setLastName(String lastName) {
 		LastName = lastName;
 	}
 
+	/**
+	 * 
+	 * @param password
+	 */
 	public void setPassword(String password) {
 		Password = password;
 	}
 
+	/**
+	 * 
+	 * @param userName
+	 */
 	public void setUserName(String userName) {
 		UserName = userName;
 	}
+
 	public boolean isAdmin() {
 		return this.getAccessLevel() == 1;
 	}

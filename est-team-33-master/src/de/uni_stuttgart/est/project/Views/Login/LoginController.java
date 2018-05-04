@@ -12,7 +12,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 
-public class LoginController  implements Initializable{
+/**
+ * 
+ * @author MikeAshi
+ *
+ */
+public class LoginController implements Initializable {
 	@FXML
 	public TextField username;
 	@FXML
@@ -23,10 +28,13 @@ public class LoginController  implements Initializable{
 		System.exit(0);
 	}
 
-	@FXML
-	private void Rest() {
-		username.setText(null);
-		password.setText(null);
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		password.setOnKeyPressed(event -> {
+			if (event.getCode() == KeyCode.ENTER) {
+				Login();
+			}
+		});
 	}
 
 	@FXML
@@ -36,11 +44,10 @@ public class LoginController  implements Initializable{
 		if (loginUsername != null) {
 			if (de.uni_stuttgart.est.project.Controllers.LoginSystemController.currentUser.isAdmin()) {
 				Main.showadminView();
-			}
-			else {
+			} else {
 				Main.showUserView();
 			}
-			
+
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.setTitle("Login Error");
@@ -51,13 +58,10 @@ public class LoginController  implements Initializable{
 		}
 	}
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		password.setOnKeyPressed(event -> {
-			   if(event.getCode() == KeyCode.ENTER){
-				   Login();
-			   }
-			}); 		
+	@FXML
+	private void Rest() {
+		username.setText(null);
+		password.setText(null);
 	}
 
 }
