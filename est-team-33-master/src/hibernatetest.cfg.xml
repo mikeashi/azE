@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.hbm2ddl.auto">create-drop</property>
+		<property name="hibernate.connection.url">jdbc:h2:mem:test</property>
+		<property name="hibernate.connection.username">sa</property>
+		<property name="hibernate.connection.password"></property>
+		<property name="hibernate.dialect">org.hibernate.dialect.H2Dialect</property>
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		<property name="use_sql_comments">true</property>
+		<mapping class="de.uni_stuttgart.est.project.models.User" />
+		<mapping class="de.uni_stuttgart.est.project.models.Calendar" />
+		<mapping class="de.uni_stuttgart.est.project.models.Workhours" />
+	</session-factory>	
+</hibernate-configuration>

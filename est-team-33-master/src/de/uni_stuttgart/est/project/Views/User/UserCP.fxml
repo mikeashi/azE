@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="682.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.uni_stuttgart.est.project.Views.User.UserCPController">
+	<children>
+		<Label layoutX="42.0" layoutY="54.0" prefHeight="30.0" prefWidth="106.0" text="Welcome,">
+			<font>
+				<Font name="System Bold" size="20.0" />
+			</font>
+		</Label>
+		<Label fx:id="username" layoutX="136.0" layoutY="54.0" text="user">
+			<font>
+				<Font name="System Bold" size="20.0" />
+			</font>
+		</Label>
+		<Label layoutX="586.0" layoutY="54.0" prefHeight="30.0" prefWidth="106.0" text="Today :">
+			<font>
+				<Font name="System Bold" size="20.0" />
+			</font>
+		</Label>
+		<Label fx:id="date" layoutX="665.0" layoutY="54.0" text="01.05.2018">
+			<font>
+				<Font name="System Bold" size="20.0" />
+			</font>
+		</Label>
+		<Label layoutX="95.0" layoutY="159.0" text="Araival :">
+			<font>
+				<Font size="20.0" />
+			</font>
+		</Label>
+		<Label layoutX="91.0" layoutY="227.0" text="Leaving :">
+			<font>
+				<Font size="20.0" />
+			</font>
+		</Label>
+      <TextField layoutX="186.0" layoutY="154.0" prefHeight="26.0" prefWidth="282.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField layoutX="186.0" layoutY="222.0" prefHeight="26.0" prefWidth="282.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button layoutX="586.0" layoutY="222.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="78.0" text="Save">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="586.0" layoutY="154.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="78.0" text="Exit">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <AnchorPane layoutX="47.0" layoutY="308.0" prefHeight="335.0" prefWidth="705.0">
+         <children>
+            <TableView prefHeight="335.0" prefWidth="706.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Date" />
+                <TableColumn prefWidth="75.0" text="isWorkingDay" />
+                  <TableColumn prefWidth="75.0" text="Arraived at" />
+                  <TableColumn prefWidth="75.0" text="Left At" />
+                  <TableColumn prefWidth="75.0" text="Pause" />
+                  <TableColumn prefWidth="75.0" text="Workhours" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </AnchorPane>
+	</children>
+</AnchorPane>
